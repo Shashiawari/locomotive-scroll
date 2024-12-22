@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef ,useState } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar/Navbat";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import "locomotive-scroll/dist/locomotive-scroll.css"; // Import LocomotiveScrol
 import"./globals.css"
 export default function Home() {
   const containerRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let scrollInstance;
@@ -27,7 +28,28 @@ export default function Home() {
       console.log("Locomotive Scroll initialized:", scrollInstance);
     };
 
-    initLocomotiveScroll();
+    // Preload images before initializing Locomotive Scroll
+    const preloadImages = () => {
+      const images = document.querySelectorAll("img");
+      const promises = Array.from(images).map(
+        (img) =>
+          new Promise((resolve) => {
+            if (img.complete) {
+              resolve();
+            } else {
+              img.onload = resolve;
+              img.onerror = resolve;
+            }
+          })
+      );
+
+      return Promise.all(promises);
+    };
+
+    preloadImages().then(() => {
+      setIsLoading(false);
+      initLocomotiveScroll();
+    });
 
     // Cleanup on unmount
     return () => {
@@ -35,6 +57,21 @@ export default function Home() {
     };
   }, []);
 
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor: "#fff",
+        }}
+      >
+        <div className="loader"></div> {/* Replace with your loader animation */}
+      </div>
+    );
+  }
   return (
     <>
     <Navbar />
