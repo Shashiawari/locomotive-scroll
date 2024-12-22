@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import "./Navbar.css"; // Import the global CSS
 import Link from "next/link";
