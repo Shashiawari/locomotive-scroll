@@ -1,0 +1,312 @@
+@font-face {
+  font-family: c1;
+  src: url(./fonts/CreatoDisplay-Regular.otf);
+}
+@font-face {
+  font-family: c2;
+  src: url(./fonts/CreatoDisplay-Medium.otf);
+}
+@font-face {
+  font-family: c3;
+  src: url(./fonts/CreatoDisplay-Bold.otf);
+}
+/*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}
+
+section p {
+  position: absolute;
+  top: 20px;
+  letter-spacing: 3px;
+  left: 20px;
+  color: #222;
+  font-weight: 700;
+  border: 1px solid #222;
+  padding: 10px;
+}
+section {
+  position: relative;
+  height: 100vh;
+  color: #222;
+  display: grid;
+  place-content: center;
+}
+section:nth-child(1) {
+  background: #e61c4bb4;
+}
+section:nth-child(2) {
+  background: #bfffc3;
+}
+section:nth-child(3) {
+  background: #c0b0ef;
+}
+section:nth-child(4) {
+  background: #ffcbcb;
+}
+.lerp-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1.25rem;
+  line-height: 1.1;
+}
+.lerp-wrap span {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(32px, 3vw, 8vw);
+  font-family: c2;
+  margin: 4px;
+
+  background-blend-mode: difference !important;
+}
+
+h1 {
+  font-family: c3;
+  font-size: 128px;
+}
+h2 {
+  font-family: c2;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+p {
+  font-family: c1;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+.sli1 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1.25rem;
+  line-height: 1.1;
+  margin-top: 100px;
+  width: 100%;
+}
+
+.sli2 {
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(32px, 3vw, 8vw);
+  background: #fff;
+  margin: 4px;
+}
+
+.sli2 img {
+  height: 150px; /* Ensure images take the full height of the container */
+}
+
+.ig1 {
+  padding: 20px;
+}
+.pos {
+  position: relative;
+}
+.abs {
+  position: absolute;
+  background-color: rgba(42, 42, 42, 0.992);
+  color: rgb(131, 131, 131);
+  padding: 10px 14px 10px 14px;
+  border-radius: 50%;
+  left: 20%;
+  top: 30%;
+  font-size: 10px;
+  z-index: 999;
+}
+
+[data-scroll-container2] {
+  display: flex;
+  overflow: hidden;
+}
+
+.section-2 {
+  height: calc(300vh + 32px + 16px);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 40% 60%;
+
+  blockquote {
+    font-size: 7vmin;
+    padding: 16px 16px 0 16px;
+
+   
+  }
+
+  .images-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 8px;
+    gap: 8px;
+    margin-top: 16px;
+
+    img {
+      width: 100%;
+      max-height: 75vh;
+      height: 100%;
+      align-self: stretch;
+      object-fit: cover;
+    }
+  }
+}
+
+.rotated {
+  transform: rotate(16deg);
+}
+
+.rotatedReverse {
+  transform: rotate(-6deg);
+}
+
+/* Margin Adjustments */
+.marginTop {
+  margin-top: 10rem; /* Equivalent to 160px */
+}
+
+/* Text Styling */
+.largeText {
+  font-size: 1.875rem; /* 30px for default */
+  line-height: 2.25rem; /* 36px */
+}
+
+/* Responsive Text Sizes */
+@media (min-width: 640px) {
+  /* Small screens */
+  .largeText {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Medium screens */
+  .largeText {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1; /* No extra line height */
+  }
+}
+
+@media (min-width: 1536px) {
+  /* Extra-large screens */
+  .largeText {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+}
+
+/* Background and Padding */
+.greenBox {
+  background-color: #c3de4a; /* Green color */
+  padding: 1.25rem; /* 20px padding */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Horizontal Scrolling */
+.scrollable {
+  display: inline-block;
+}
+
+.git {
+  background-image: url("/gg.jpg");
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+}
+.git a {
+  font-family: c3;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  color: #000;
+  text-decoration: none;
+}

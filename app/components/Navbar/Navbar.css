@@ -1,0 +1,155 @@
+/* Base Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff00;
+  color: white;
+  z-index: 1000;
+  height: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  width: 100% !important;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: 2px solid black;
+  background-blend-mode: difference !important;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  font-family: c3;
+}
+
+.menuToggle {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* From Uiverse.io by vinodjangid07 */
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.5s;
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 4px;
+}
+
+#bar2 {
+  transition-duration: 0.8s;
+}
+
+#bar1,
+#bar3 {
+  width: 70%;
+}
+
+#checkbox:checked + .toggle .bars {
+  position: absolute;
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar2 {
+  transform: scaleX(0);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar1 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar3 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle {
+  transition-duration: 0.5s;
+  transform: rotate(180deg);
+}
+/* Menu Styles */
+.menu {
+  list-style: none;
+  text-align: right !important;
+  overflow: hidden; /* Prevents content overflow during transition */
+  max-height: 0; /* Hidden by default */
+  opacity: 0; /* Invisible by default */
+  background-color: #ffffff;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.menuOpen {
+  height: 100vh; /* Adjust based on content height */
+  opacity: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Fully visible */
+  overflow: hidden;
+  width: 100% !important;
+}
+
+hr {
+  color: black;
+}
+
+.menu li a {
+  font-family: c2;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 4rem;
+  display: block;
+  padding: 10px 0;
+  text-align: right !important;
+}
+
+.menu li a:hover {
+  color: #ff6347;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 1000px) {
+  .menu {
+    display: flex !important;
+    flex-direction: column !important;
+    opacity: 1;
+    gap: 20px;
+    padding: 20px;
+    width: 100% !important;
+  }
+
+  .menu li {
+    text-align: right;
+  }
+}
